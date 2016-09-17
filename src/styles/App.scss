@@ -60,6 +60,10 @@ html, body {
       &.is-inverse {
         transform: translate(320px) rotateY(180deg);
       }
+.img {
+      width: 100%;
+      height:100%;
+    }
     }
 
     .img-back {
@@ -78,10 +82,11 @@ html, body {
       background: #fff;
     }
 
+
     figcaption {
       text-align: center;
       .img-title {
-        margin: 20px 0 0 0;
+        /* margin: 20px 0 0 0; */
         color: #a7a0a2;
         font-size: 16px;
       }
