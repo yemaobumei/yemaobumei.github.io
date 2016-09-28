@@ -49,11 +49,12 @@ html, body {
       @include abpos;
       //overflow: hidden;
       top:10%;
-      left: 20%;
+      left: 50%;
       width: 320px;
       height: 360px;
       margin: 0;
-      padding: 0px;
+      padding: 40px;
+      margin-left: -160px;
       box-sizing: border-box;
       background-color: #fff;
       cursor: pointer;

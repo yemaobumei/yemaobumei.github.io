@@ -183,7 +183,7 @@ rearrange(centerIndex){
       this.rearrange(1);
       this.timer=setInterval(function(){
       	this.rearrange(Math.round(Math.random()*10));
-      }.bind(this),4000)
+      }.bind(this),6000)
 
 
   }
