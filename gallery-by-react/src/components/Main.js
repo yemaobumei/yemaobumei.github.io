@@ -76,17 +76,17 @@ class ImgFigure extends React.Component {
 			<figure className={className}  style={styleObj} onClick={this.handleClick}><img className="img" src={this.props.data.imageURL} alt={this.props.data.title}/>
 			<figcaption>
 			<h2 className="img-title">{this.props.data.title}</h2>
-			          <div className="img-back" onClick={this.handleClick}>
-				<p>
-				{this.props.data.instagram}
-				</p>
-				<p>
-				{this.props.data.douban}
-				</p>
-				<p>
-				{this.props.data.desc}
-				</p>
-				</div>
+			<div className="img-back" onClick={this.handleClick}>
+            <p>
+				{this.props.data.dream_id}
+            </p>
+            <p>
+				{this.props.data.qq_group}  
+            </p>
+            <p>
+				{this.props.data.desc}  
+            </p>
+			</div>
 			</figcaption>
 			</figure>);
 	}
