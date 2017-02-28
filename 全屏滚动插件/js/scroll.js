@@ -58,8 +58,14 @@
 		$controllerUnit.appendTo($controllerNav);
 		$('.controller-unit').eq(0).addClass("controller-unit-hover");
 		//控制按钮绑定事件
-
-
+		$('.controller-unit').each(function(index,ele){
+			$(ele).click(function(e){
+				if(count===index){return false;}
+				document.documentElement.scrollTop=document.body.scrollTop=pageArray[index];
+				count=index;
+				pageChange();
+			})
+		})
 	}
 
 
@@ -118,7 +124,6 @@ function mouseWheel(){
 			scrollPage(pageArray[count],speed);
 		}		
 		pageChange();
-		return false;
 	}
 	function moveUp(){
 		count-=1;				
@@ -130,9 +135,7 @@ function mouseWheel(){
 		}else{
 			scrollPage(pageArray[count],-speed);	
 		}
-		pageChange();
-		return false;
-		
+		pageChange();		
 	}
 
 //--------------------键盘滚动事件-------------------------------------
