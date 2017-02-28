@@ -1,0 +1,45 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+	
+.page{
+	-moz-background-size:cover;
+	-webkit-background-size:cover;
+	-o-background-size:cover;
+	background-size: cover;
+
+	-moz-background-position:center center;
+	-webkit-background-position:center center;
+	-o-background-position:center center;
+	background-position:center center;
+}
+
+.controller-nav {
+    position: fixed;
+    left: 0;
+    bottom: 40px;
+    z-index: 101;
+    width: 100%;
+    text-align: center;
+    color:#FFC107;
+}
+.controller-unit {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 10px 10px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #aaa;
+    border-radius: 50%;
+    vertical-align: middle;
+    transition: transform .6s ease-in-out;
+}
+.controller-unit-hover{
+	-moz-transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	-o-transform:scale(1.1);
+	transform: scale(1.1);
+	background-color: #fff;
+}

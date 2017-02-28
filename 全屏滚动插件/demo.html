@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>                                                                          
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>全局滚动插件demo</title>
+<meta name="author" content="yemaobumei,385131462@qq.com ">
+<meta name="copyright" content="允许转载，源码地址">
+<link rel="stylesheet" type="text/css" href="css/scroll.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style type="text/css">
+/* 自定义添加的背景图片与插件无关，用户可自定义 */
+.page{
+	border:1px dashed #aee2d9;
+}
+.pageOne{
+	background-image: url('images/bg1.jpg');
+}
+.pageTwo{
+	background-image: url('images/bg2.jpg');
+}
+.pageThree{
+	background-image: url('images/bg3.jpg');
+}
+.pageFour{
+	background-image: url('images/bg4.jpg');
+}
+</style>
+</head>
+<body id="container">
+	<div class="page pageOne"></div>
+	<div class="page pageTwo"></div>
+	<div class="page pageThree"></div>
+	<div class="page pageFour"></div>			
+</body>
+
+<script src="js/scroll.min.js" type="text/javascript" charset="utf-8" ></script>
+<script type="text/javascript">
+	$(function(){
+		$("#container").switchPage({
+			'container' : '#container',//容器
+			'page' : '.page',//子容器
+			'loop' : true,
+			'keyboard' : true,
+			'direction' : 'horizontal'
+		});
+	})
+
+</script>
+</html>
