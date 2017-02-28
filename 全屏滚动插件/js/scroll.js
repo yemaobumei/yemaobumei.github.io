@@ -71,49 +71,49 @@
 
   //--------------------------页面滚动--------------------------------------------------------
 
-function scrollPage(destination,speed){
-	isFinished=false;
-/*	if(speed>0){*/	
-		var timer=setTimeout(function(){
+	function scrollPage(destination,speed){
+		isFinished=false;
+	/*	if(speed>0){*/	
+			var timer=setTimeout(function(){
 
-			var osTop=document.documentElement.scrollTop||document.body.scrollTop;
-				//console.log('ostop'+osTop)
-				if(Math.abs(osTop-destination)>Math.abs(speed)){
-					speed=speed+speed*0.01;
-					document.documentElement.scrollTop=document.body.scrollTop=osTop+speed;
-					setTimeout(arguments.callee,3)	
-				}else{
-					document.documentElement.scrollTop=document.body.scrollTop=destination;
-					isFinished=true;
-				}
+				var osTop=document.documentElement.scrollTop||document.body.scrollTop;
+					//console.log('ostop'+osTop)
+					if(Math.abs(osTop-destination)>Math.abs(speed)){
+						speed=speed+speed*0.01;
+						document.documentElement.scrollTop=document.body.scrollTop=osTop+speed;
+						setTimeout(arguments.callee,3)	
+					}else{
+						document.documentElement.scrollTop=document.body.scrollTop=destination;
+						isFinished=true;
+					}
 
-		 },10);
+			 },10);
 
-}
+	}
 //----------------------------页码以及控制按钮相关函数-------------------------------------
-function pageChange(){
-	$(".count").html(count+1);
-	$('.controller-unit').removeClass("controller-unit-hover");
-	$('.controller-unit').eq(count).addClass("controller-unit-hover");	
-}
+	function pageChange(){
+		$(".count").html(count+1);
+		$('.controller-unit').removeClass("controller-unit-hover");
+		$('.controller-unit').eq(count).addClass("controller-unit-hover");	
+	}
 //--------------------鼠标滑动事件-----------------------------------------------------------
-function mouseWheel(){
+	function mouseWheel(){
 
-	var MouseWheelHandler=function(e){
+		var MouseWheelHandler=function(e){
 
-					e.preventDefault();
-					var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;//火狐下比较小,chrome比较大				
-					var move=1;
-					var delta=value;			
-						if (delta<-move && isFinished) {
-							moveDown();
-						}else if(delta>move && isFinished) {
-							moveUp();
-						}
-				}
+						e.preventDefault();
+						var value = e.originalEvent.wheelDelta || -e.originalEvent.detail;//火狐下比较小,chrome比较大				
+						var move=1;
+						var delta=value;			
+							if (delta<-move && isFinished) {
+								moveDown();
+							}else if(delta>move && isFinished) {
+								moveUp();
+							}
+					}
 
-	$(document).on("mousewheel DOMMouseScroll", MouseWheelHandler);
-}
+		$(document).on("mousewheel DOMMouseScroll", MouseWheelHandler);
+	}
 	function moveDown(){
 		count+=1;
 		if(count>=pageArray.length){
