@@ -1,9 +1,48 @@
-有些时候需要像播放幻灯片一样去翻滚页面，因此写了一个全局滚动页面的插件
+# 页面切换插件 pageSwitch v1.1
 
-用法将body或者最外层div的id设置成container
+## 简介
 
-里面包含若干class="page"的div
+基于jquery1.7+实现的全屏滚动插件，可垂直全屏滚动页面
 
-按顺序引入srcoll.css,jquery.min.js,scroll.min.js
 
-具体用法参见demo.html。
+
+### 默认属性
+
+```javascript
+    defaults = {
+        'container' : '#container',//容器
+        'page' : '.page',//子容器
+        'keyboard' : true,//是否支持键盘
+    };
+```
+
+## 使用
+
+### 引入
+
+```html
+<link rel="stylesheet" type="text/css" href="css/scroll.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="js/pageSwitch.min.js" type="text/javascript" charset="utf-8" ></script>
+```
+    
+### 添加容器
+
+```html
+<body id="container">
+    <div class="page pageOne"></div>
+    <div class="page pageTwo"></div>
+    <div class="page pageThree"></div>
+    <div class="page pageFour"></div>
+</body>       
+```
+
+### 初始化
+
+```javascript
+        $("#container").switchPage({
+            'container' : '#container',//容器
+            'page' : '.page',//子容器
+            'keyboard' : true,
+        });
+```
