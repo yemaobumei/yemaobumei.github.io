@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>                                                                          
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>邮件收件人demo</title>
+<meta name="author" content="yemaobumei,385131462@qq.com ">
+<meta name="copyright" content="允许转载，源码地址">
+<link rel="stylesheet" type="text/css" href="css/mailbox.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<style type="text/css">
+
+</style>
+</head>
+<body id="container">
+<div id="wrap" class="wrap">
+
+</div>
+
+<script src="js/mailbox.js" type="text/javascript" charset="utf-8" ></script>
+<script type="text/javascript">
+	$(function(){
+		$("#wrap").mailbox({
+			'container' : '#wrap',//容器id;
+			'width':'400px',//设置容器宽度
+			'height':'30px',//设置容器高度
+		});
+	})
+</script>		
+</body>
+</html>
