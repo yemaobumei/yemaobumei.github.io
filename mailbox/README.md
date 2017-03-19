@@ -1,18 +1,29 @@
-# 页面切换插件 pageSwitch v1.1
+# 输入框输入文本自动形成小框方便删除插件 mailbox.js v1.1
 
 ## 简介
 
-基于jquery1.7+实现的全屏滚动插件，可垂直全屏滚动页面
+基于jquery1.7+实现,实现类似网易邮箱写信地址栏动态功能
 
 
 
 ### 默认属性
 
 ```javascript
-    defaults = {
-        'container' : '#container',//容器
-        'page' : '.page',//子容器
-        'keyboard' : true,//是否支持键盘
+    var defaults = {
+            'container' : '#wrap',//容器id;
+            'width':'400px',//设置容器宽度
+            'height':'30px',//设置容器高度
+            'background':'transparent',//背景色
+            'line-height':'30px',
+            //已输入内容tip小框样式
+            'style':{
+                'height':'12px',//设置div.tip高度
+                'background':'#fff',//div.tip背景色
+                'font-size':'12px',
+                'line-height':'12px',
+                'input-width':'40px',//输入框默认宽度             
+            },
+
     };
 ```
 
@@ -21,28 +32,33 @@
 ### 引入
 
 ```html
-<link rel="stylesheet" type="text/css" href="css/scroll.css">
+<link rel="stylesheet" type="text/css" href="css/mailbox.css">
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<script src="js/pageSwitch.min.js" type="text/javascript" charset="utf-8" ></script>
+<script src="js/mailbox.js" type="text/javascript" charset="utf-8" ></script>
 ```
     
 ### 添加容器
 
 ```html
-<body id="container">
-    <div class="page pageOne"></div>
-    <div class="page pageTwo"></div>
-    <div class="page pageThree"></div>
-    <div class="page pageFour"></div>
-</body>       
+<div id="wrap">
+
+</div>       
 ```
 
 ### 初始化
 
 ```javascript
-        $("#container").switchPage({
-            'container' : '#container',//容器
-            'page' : '.page',//子容器
-            'keyboard' : true,
+        var m=new Mailbox({
+            'container' : '#wrap',//容器id;
+            'width':'600px',//设置容器宽度
+            'height':'30px',//设置容器高度
+            'style':{       //div.tip已输入内容框样式
+
+            }
         });
+```
+### 获取输入框value
+
+```javascript
+m.getValue()
 ```

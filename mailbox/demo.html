@@ -10,22 +10,28 @@
 <link rel="stylesheet" type="text/css" href="css/mailbox.css">
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <style type="text/css">
-
+body{
+    background-image: url('./images/bg3.jpg');
+    background-size: cover;
+}
 </style>
 </head>
-<body id="container">
+<body>
 <div id="wrap" class="wrap">
 
 </div>
-
 <script src="js/mailbox.js" type="text/javascript" charset="utf-8" ></script>
 <script type="text/javascript">
 	$(function(){
-		$("#wrap").mailbox({
+		var x=new Mailbox({
 			'container' : '#wrap',//容器id;
-			'width':'400px',//设置容器宽度
+			'width':'600px',//设置容器宽度
 			'height':'30px',//设置容器高度
+			'style':{
+
+			}
 		});
+
 	})
 </script>		
 </body>

@@ -1,23 +1,62 @@
-*{
-	margin: 0;
-	padding: 0;
-}
+
 	
-#container{
-    background-image: url('../images/bg1.jpg');
-    background-size: cover;
-}
+
 .wrap{
-    width: 400px;
-    height: 30px;
     margin: 20% auto;
-    border: 1px solid #aaa;
-    background: #fff;
-    font-size: 12px!important;
-
+    border: none;
+    border-bottom: 1px solid #bbb;
+    background-color: transparent;
+    box-shadow: none;
+    cursor: text;
+    position: relative;
+    padding: 2px 4px;
+    zoom: 1;
 }
 
-
+.inputbox input{
+    width:40px;
+}
 .inputbox input:focus {
     outline: none;
+}
+.tip{
+    position: relative;
+    max-width: 465px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 17px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 2px 9px;
+    color: #7F7F7F;
+    outline: 0;
+    border-color: #C2D4E3;
+    background-color: #e8f0f7;
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 20px;
+    margin-left: 2px;
+}
+
+.del{
+    position: absolute;
+    right: -2px;
+    top: -1px;
+    display: inline;
+    text-decoration: none;
+    font-family: verdana;
+    border-radius: 0 17px 17px 0;
+    font-weight: 700;
+    padding: 2px 5px 2px 3px;
+    border-width: 1px;
+    border-style: solid;
+    color: #C2D4E3;
+    border-color: #C2D4E3;
+    background-color: #e8f0f7;
+}
+.tip_hover{
+    border-color: #6d92b8;
+    color:#6d92b8;
 }
