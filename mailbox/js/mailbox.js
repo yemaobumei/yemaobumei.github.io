@@ -41,7 +41,7 @@ var Mailbox=
 
 		//设置容器，输入框的宽度，高度保持一致。
 		$container.css({'width':opts.width,'height':opts.height,'background':opts.background,'line-height':opts['line-height']});
-		var $box=$('<div class=" added"></div><div class="inputbox"><input type="text" style="border:none;padding:0 5px;background:transparent" /></div>');
+		var $box=$('<div class=" added"></div><div class="inputbox"><input type="text" style="width:40px;border:none;padding:0 5px;background:transparent" /></div>');
 		$box.appendTo($container);
 		$box.css({'height':opts.style.height,'border':'none','display':'inline','line-height':opts.style.height});
 		$box.find('input').css({height:opts.height});
@@ -64,13 +64,16 @@ var Mailbox=
 			var keydownId;
 			clearTimeout(keydownId);
 			keydownId = setTimeout(function(){
+
+				//--------input框输入时动态改变长度-------------------
+				var testLength = $this_.val().length
+				$this_.css('width', testLength*14 + 'px')
+				
 				var keyCode = e.keyCode;
 				if(keyCode == 186){//输入分号间隔
 					$container.find('input').change()
 				}
-				//--------input框输入时动态改变长度-------------------
-				var testLength = $this_.val().length
-				$this_.css('width', testLength*14 + 'px')
+
 			},100);
 
 		});
@@ -118,6 +121,7 @@ var Mailbox=
 
 				//恢复输入框默认宽度
 				$this_.css({'width':opts.style['input-width']});
+				console.log(opts.style['input-width'])
 				
 			}
 	}	
