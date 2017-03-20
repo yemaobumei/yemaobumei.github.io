@@ -45,7 +45,7 @@
 ### 添加容器
 
 ```html
-<div id="wrap">
+<div id="wrap" class="wrap">
 
 </div>       
 ```
