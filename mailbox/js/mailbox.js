@@ -57,7 +57,6 @@ var Mailbox=
 
 		//容器clik事件，激活input输入框，去掉tip_click样式
 		this_.$container.click(function(event){
-
 			$(this).find('input').focus();
 			$(this).find('.tip').removeClass('tip_click');
 			event.stopPropagation();
@@ -71,64 +70,64 @@ var Mailbox=
 		this_.$container.find('input').change(input);
 	//--------------内容改变具体的响应函数----------------------------------
 		function input(e){
-				var $this_=$(this);
-				var text=$this_.val();		
-				var tips="";
-				if(text.length>0){
-					if(/;/.test(text)){
-						var res=text.split(';');//分号;分组	
-					}else{
-						var res=[text];
-					}
-					$this_.val('')//清空
-					for(var i=0;i<res.length;i++){
-						if(res[i]!=""){
-							if(this_.opts.validation(res[i])){
-								tips+='<div class="tip"><span class="message">'+res[i]+'</span><a class="del" href="javascript:void(0)" >x</a></div>'	
-							}else{
-								tips+='<div class="tip error"><span class="message">'+res[i]+'</span><a class="del error" href="javascript:void(0)" >x</a></div>'	
-						}
-							}
-					}
-					var $tips=$(tips);
-					$tips.appendTo(this_.$container.find('.added'));
-					// console.log(this.$container.find('.added'))
-					$tips.each(function(index,ele){//$tips==>[div.tip,div.tip,…………]jquery数组
-
-						//div.tip小框样式设置	
-						$(ele).css(this_.opts.style)
-
-						//tips的hover事件，边框颜色变化
-						$(ele).hover(function(){
-
-							$(ele).addClass('tip_hover');
-							$(ele).find('a').addClass('tip_hover');
-						},function(){
-							$(ele).removeClass('tip_hover');
-							$(ele).find('a').removeClass('tip_hover');
-						})
-						//tip的click事件
-						$(ele).click(function(event){
-							event.stopPropagation();//阻止冒泡
-							this_.$container.find('input').focus()
-							if($(this).hasClass('tip_click')){
-								$(this).removeClass('tip_click');
-							}else{
-								$(this).addClass('tip_click');
-							}					
-						})					
-					})
-					//删除每个小tip框事件
-					$tips.find('.del').each(function(index,ele){
-						$(ele).click(function(event){
-							$(this).closest('div.tip').remove();
-						})
-					})
-
-					//恢复输入框默认宽度
-					$this_.css({'width':this_.opts.style['input_width']});
-					this_.flag=true;//此时输入框内容为空,this.flag置为true；
+			var $this_=$(this);
+			var text=$this_.val();		
+			var tips="";
+			if(text.length>0){
+				if(/;/.test(text)){
+					var res=text.split(';');//分号;分组	
+				}else{
+					var res=[text];
 				}
+				$this_.val('')//清空
+				for(var i=0;i<res.length;i++){
+					if(res[i]!=""){
+						if(this_.opts.validation(res[i])){
+							tips+='<div class="tip"><span class="message">'+res[i]+'</span><a class="del" href="javascript:void(0)" >x</a></div>'	
+						}else{
+							tips+='<div class="tip error"><span class="message">'+res[i]+'</span><a class="del error" href="javascript:void(0)" >x</a></div>'	
+					}
+						}
+				}
+				var $tips=$(tips);
+				$tips.appendTo(this_.$container.find('.added'));
+				// console.log(this.$container.find('.added'))
+				$tips.each(function(index,ele){//$tips==>[div.tip,div.tip,…………]jquery数组
+
+					//div.tip小框样式设置	
+					$(ele).css(this_.opts.style)
+
+					//tips的hover事件，边框颜色变化
+					$(ele).hover(function(){
+
+						$(ele).addClass('tip_hover');
+						$(ele).find('a').addClass('tip_hover');
+					},function(){
+						$(ele).removeClass('tip_hover');
+						$(ele).find('a').removeClass('tip_hover');
+					})
+					//tip的click事件
+					$(ele).click(function(event){
+						event.stopPropagation();//阻止冒泡
+						this_.$container.find('input').focus()
+						if($(this).hasClass('tip_click')){
+							$(this).removeClass('tip_click');
+						}else{
+							$(this).addClass('tip_click');
+						}					
+					})					
+				})
+				//删除每个小tip框事件
+				$tips.find('.del').each(function(index,ele){
+					$(ele).click(function(event){
+						$(this).closest('div.tip').remove();
+					})
+				})
+
+				//恢复输入框默认宽度
+				$this_.css({'width':this_.opts.style['input_width']});
+				this_.flag=true;//此时输入框内容为空,this.flag置为true；
+			}
 		}
 
 	}
@@ -141,7 +140,6 @@ var Mailbox=
 			var keydownId;
 			clearTimeout(keydownId);
 			keydownId = setTimeout(function(){
-
 
 				var keyCode = e.keyCode;
 				//console.log(keyCode)
@@ -166,7 +164,6 @@ var Mailbox=
 					var $tip_click=this_.$container.find('.tip_click');
 					var $tip=this_.$container.find('.tip');
 					
-
 						if($tip_click.length>0){
 							$tip_click.remove();
 						}else{
@@ -182,6 +179,5 @@ var Mailbox=
 			},100);
 		});
 	}
-
 	
 })(jQuery);
