@@ -10,10 +10,10 @@ var Mailbox=
 			//已输入内容tip小框样式和input输入框样式
 			'style':{
 				'height':'12px',//设置div.tip高度
-				'background':'#fff',//div.tip背景色
+				//'background':'#fff',//div.tip背景色
 				'font-size':'12px',
 				'line-height':'12px',
-				'input-width':'40px',//输入框默认宽度			
+				'input_width':'100px',//输入框默认宽度		
 			},
 
 	};
@@ -41,13 +41,17 @@ var Mailbox=
 
 		//设置容器，输入框的宽度，高度保持一致。
 		$container.css({'width':opts.width,'height':opts.height,'background':opts.background,'line-height':opts['line-height']});
-		var $box=$('<div class=" added"></div><div class="inputbox"><input type="text" style="width:40px;border:none;padding:0 5px;background:transparent" /></div>');
+		var $box=$('<div class=" added"></div><div class="inputbox"><input type="text" style="border:none;padding:0 5px;background:transparent" placeholder="输入邮箱" /></div>');
 		$box.appendTo($container);
 		$box.css({'height':opts.style.height,'border':'none','display':'inline','line-height':opts.style.height});
 		$box.find('input').css({height:opts.height});
-
+		//容器clik事件，激活input输入框，去掉tip_click样式
 		$container.click(function(event){
 			$(this).find('input').focus();
+			event.stopPropagation();
+		})
+		$(document).click(function(e){
+			$container.find('.tip').removeClass('tip_click');
 		})
 	}
 
@@ -66,12 +70,24 @@ var Mailbox=
 			keydownId = setTimeout(function(){
 
 				//--------input框输入时动态改变长度-------------------
-				var testLength = $this_.val().length
-				$this_.css('width', testLength*14 + 'px')
+				var testLength = $this_.val().length;
+				var input_width=parseInt(opts.style['input_width'].substring(0,2));
+				var width=testLength*14>=input_width?testLength*14:input_width;
+				$this_.css('width', width + 'px')
 				
 				var keyCode = e.keyCode;
+				console.log(keyCode)
 				if(keyCode == 186){//输入分号间隔
 					$container.find('input').change()
+				}
+				if(keyCode == 8){
+					var $tip_click=$container.find('.tip_click');
+					var $tip=$container.find('.tip');
+					if($tip_click.length>0){
+						$tip_click.remove();
+					}else{
+						$tip.last().remove();	
+					}
 				}
 
 			},100);
@@ -92,8 +108,12 @@ var Mailbox=
 				$this_.val('')//清空
 				for(var i=0;i<res.length;i++){
 					if(res[i]!=""){
-						tips+='<div class="tip"><span class="message">'+res[i]+'</span><a class="del" href="javascript:void(0)" >x</a></div>'	
+						if(validation(res[i])){
+							tips+='<div class="tip"><span class="message">'+res[i]+'</span><a class="del" href="javascript:void(0)" >x</a></div>'	
+						}else{
+							tips+='<div class="tip error"><span class="message">'+res[i]+'</span><a class="del error" href="javascript:void(0)" >x</a></div>'	
 					}
+						}
 				}
 				var $tips=$(tips);
 				$tips.appendTo($container.find('.added'));
@@ -110,6 +130,14 @@ var Mailbox=
 					},function(){
 						$(ele).removeClass('tip_hover');
 						$(ele).find('a').removeClass('tip_hover');
+					})
+					//tips的click事件
+					$(ele).click(function(event){
+						//event.stopPropagation();//阻止冒泡
+						if($(this).hasClass('tip_click')){
+							return 
+						}
+						$(this).addClass('tip_click');
 					})					
 				})
 				//删除每个小tip框事件
@@ -120,9 +148,12 @@ var Mailbox=
 				})
 
 				//恢复输入框默认宽度
-				$this_.css({'width':opts.style['input-width']});
-				console.log(opts.style['input-width'])
+				$this_.css({'width':opts.style['input_width']});
 				
 			}
+	}
+	function validation(str){
+		var reg=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/
+		return reg.test(str)
 	}	
 })(jQuery);

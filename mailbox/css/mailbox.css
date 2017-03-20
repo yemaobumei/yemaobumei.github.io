@@ -13,13 +13,11 @@
     zoom: 1;
 }
 
-.inputbox input{
-    width:40px;
-}
-.inputbox input:focus {
+
+.wrap .inputbox input:focus {
     outline: none;
 }
-.tip{
+.wrap .tip{
     position: relative;
     max-width: 465px;
     height: 12px;
@@ -40,7 +38,7 @@
     margin-left: 2px;
 }
 
-.del{
+.wrap .del{
     position: absolute;
     right: -2px;
     top: -1px;
@@ -56,7 +54,15 @@
     border-color: #C2D4E3;
     background-color: #e8f0f7;
 }
-.tip_hover{
+.wrap .tip_hover{
     border-color: #6d92b8;
     color:#6d92b8;
+}
+.wrap .tip_click{
+    background-color: #0F6099;
+    color: #fff;
+}
+.wrap .error{
+    border-color:#EDB8B8;
+    color: #c30;
 }
