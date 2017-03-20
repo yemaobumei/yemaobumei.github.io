@@ -25,6 +25,9 @@
 <div id="wrap" class="wrap">
 
 </div>
+<div class="wrap" id="wrap2">
+	
+</div>
 <script src="js/mailbox.js" type="text/javascript" charset="utf-8" ></script>
 <script type="text/javascript">
 	$(function(){
@@ -40,7 +43,18 @@
 				return reg.test(str);
 			},
 		});
+		var y=new Mailbox({
+			'container' : '#wrap2',//容器id;
+			'width':'600px',//设置容器宽度
+			'height':'30px',//设置容器高度
+			'style':{
 
+			},
+			'validation':function(str){
+				var reg=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+				return reg.test(str);
+			},
+		});
 	})
 </script>		
 </body>
