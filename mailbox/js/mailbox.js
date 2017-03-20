@@ -19,7 +19,7 @@ var Mailbox=
 				'line-height':'12px',
 				'input_width':'100px',//输入框默认宽度		
 			},
-			'info':'输入提示信息'
+			'info':'提示信息,比如输入邮箱'
 
 	};
 
@@ -46,7 +46,7 @@ var Mailbox=
 
 		//设置容器，输入框的宽度，高度保持一致。
 		$container.css({'width':opts.width,'height':opts.height,'background':opts.background,'line-height':opts['line-height']});
-		var $box=$('<div class=" added"></div><div class="inputbox"><input type="text" style="border:none;padding:0 5px;background:transparent" placeholder='+opts.info+'/></div>');
+		var $box=$('<div class=" added"></div><div class="inputbox"><input type="text" style="border:none;padding:0 5px;background:transparent" placeholder='+opts.info+'></div>');
 		$box.appendTo($container);
 		$box.css({'height':opts.style.height,'border':'none','display':'inline','line-height':opts.style.height});
 		$box.find('input').css({height:opts.height});
