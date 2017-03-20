@@ -15,14 +15,19 @@
             'height':'30px',//设置容器高度
             'background':'transparent',//背景色
             'line-height':'30px',
-            //已输入内容tip小框样式
+            //已输入内容tip小框样式和input输入框样式
+            'validation':function(str){
+                var reg=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+                return reg.test(str);
+            },
             'style':{
                 'height':'12px',//设置div.tip高度
-                'background':'#fff',//div.tip背景色
+                //'background':'#fff',//div.tip背景色
                 'font-size':'12px',
                 'line-height':'12px',
-                'input-width':'40px',//输入框默认宽度             
+                'input_width':'100px',//输入框默认宽度     
             },
+            'info':'输入提示信息'
 
     };
 ```
@@ -53,7 +58,6 @@
             'width':'600px',//设置容器宽度
             'height':'30px',//设置容器高度
             'style':{       //div.tip已输入内容框样式
-
             }
         });
 ```

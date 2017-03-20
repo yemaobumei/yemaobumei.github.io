@@ -34,7 +34,11 @@
 			'height':'30px',//设置容器高度
 			'style':{
 
-			}
+			},
+			'validation':function(str){
+				var reg=/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+				return reg.test(str);
+			},
 		});
 
 	})
