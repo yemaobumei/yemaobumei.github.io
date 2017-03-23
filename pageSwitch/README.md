@@ -4,7 +4,7 @@
 
 基于jquery1.7+实现的全屏滚动插件，可垂直全屏滚动页面
 
-##Demo地址
+#### Demo地址
 
 https://yemaobumei.github.io/pageSwitch/demo.html
 
